@@ -1,0 +1,25 @@
+[build]
+command = "npm run build"
+publish = "build/client"
+
+[build.processing]
+skip_processing = true
+
+[dev]
+port = 5000
+publish = "build/client"
+autoLaunch = false
+
+[functions]
+#included_files = ["newrelic.js"]
+#external_node_modules = ["newrelic", '@newrelic/*', 'glider-js']
+# node_bundler = "esbuild"
+
+#[[plugins]]
+# it does not support SSR
+#package = "@netlify/plugin-lighthouse"
+
+[[redirects]]
+from = "/*"
+to = "/.netlify/functions/server"
+status = 200
